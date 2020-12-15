@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fitness Tracker API</title>
+  <style>
+    * {
+      font-family: monospace;
+    }
+
+    li {
+      list-style-type: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to the Fitness Tracker API</h1>
+  <h2>Check out the following API routes:</h2>
+  <ul>
+    <li><a href="/workouts">GET all workouts</a></li>
+    <li><a href="/exercises">GET all exercises</a></li>
+    <br />
+    <li><a href="/workouts/1">GET single workout by id</a></li>
+    <li><a href="/exercises/1">GET single exercise by id</a></li>
+    <br />
+    <li>
+      POST a new workout with this request body (JSON):
+      <pre>
+  {
+    "name": "Arm Day",
+    "date": "2019-03-05T15:39:20.199Z"
+  }
+        </pre>
+    </li>
+    <li>
+      POST a new exercise with this request body (JSON):
+      <pre>
+  {
+    "name": "Swimming",
+    "description": "Swim 10 laps freestyle",
+    "completed": false
+  }
+        </pre>
+    </li>
+    <br />
+    <li>DELETE workout by id</li>
+    <li>DELETE exercise by id</li>
+  </ul>
+  <br />
+  <h3>
+    <a href="https://www.getpostman.com/downloads/">Postman</a>
+    is a great way to play around with the POST and DELETE routes
+  </h3>
+</body>
+
+</html>
