@@ -1,4 +1,4 @@
-const Sequelize = require('Sequelize')
+const Sequelize = require('sequelize')
 
 const databaseUrl = process.env.DATABASE_URL || 'postgres://localhost:5432/fitness-tracker'
 const db = new Sequelize(
