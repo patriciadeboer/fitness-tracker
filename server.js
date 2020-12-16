@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const {db} = require('./database')
 
 const workoutRoutes = require('./routes/workouts')
 const exerciseRoutes = require('./routes/exercises')
@@ -22,8 +23,17 @@ app.use('/exercises', exerciseRoutes)
 // Serve the index.html file in ./public as a homepage
 app.use(express.static('public'))
 
-// If the environment has a PORT defined, use that (otherwise, default to 3030)
-const PORT = process.env.PORT || 3030
-app.listen(PORT, () => {
-  console.log(`Getting swole on port ${PORT}`)
-})
+// If the environment has a PORT defined, use that (otherwise, default to 3000)
+const PORT = process.env.PORT || 3000
+
+async function startServer () {
+  try{
+    await db.sync()
+    app.listen(PORT, () => {
+      console.log(`Check it out at port ${PORT}`)
+    })
+  }catch(err){
+    console.error(err)
+  }
+}
+startServer()
